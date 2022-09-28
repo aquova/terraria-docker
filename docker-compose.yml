@@ -1,0 +1,12 @@
+version: '3'
+services:
+  terraria:
+    image: terraria:latest
+    container_name: terraria
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./worlds:/worlds
+    ports:
+      - "7777:7777"
