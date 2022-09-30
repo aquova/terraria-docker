@@ -2,7 +2,7 @@
 
 A Docker image for hosting Terraria servers.
 
-Current running Terraria version 1.4.4.1.
+Currently on Terraria version 1.4.4.2.
 
 ## Usage
 
