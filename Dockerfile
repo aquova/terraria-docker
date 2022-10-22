@@ -2,17 +2,11 @@ FROM archlinux:base
 
 RUN pacman -Syu --noconfirm && pacman -S --noconfirm unzip
 
-ARG VERSION=1446
-ARG FILENAME=terraria-server-$VERSION.zip
+RUN mkdir /terraria /worlds
+COPY terraria.zip /
+RUN unzip terraria.zip -d /terraria && \
+    rm terraria.zip
 
-ADD https://terraria.org/api/download/pc-dedicated-server/$FILENAME /$FILENAME
-
-RUN unzip $FILENAME && \
-    mkdir /terraria /worlds && \
-    mv $VERSION/Linux/* /terraria && \
-    rm -rf $VERSION $FILENAME && \
-    chmod +x /terraria/TerrariaServer.bin.x86_64
-
-COPY config.ini /terraria
-WORKDIR /terraria
+COPY config.ini /terraria/Terraria
+WORKDIR /terraria/Terraria
 CMD ./TerrariaServer.bin.x86_64 -config config.ini
