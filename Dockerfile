@@ -2,7 +2,7 @@ FROM archlinux:base
 
 RUN pacman -Syu --noconfirm && pacman -S --noconfirm unzip
 
-ARG VERSION=1447
+ARG VERSION=14481
 ARG FILENAME=terraria-server-$VERSION.zip
 
 ADD https://terraria.org/api/download/pc-dedicated-server/$FILENAME /$FILENAME
